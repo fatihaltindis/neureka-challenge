@@ -1,4 +1,4 @@
-% This codes is reading file name, start time, end time, label and 
+% This codes is reading EDF file name, start time, end time, label and 
 % confidence level information into cell array. 
 
 % Give the full path of the file in order to avoid encountering problems
