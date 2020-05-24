@@ -2,11 +2,13 @@ function [labeled_data] = create_label_cell(fname,pred_lab,time,conf)
 %create_label_cell This function takes string for EDF filename, predicted 
 % label vector of the corresponding EDF file (in case of that the record 
 % includes both seziure and background in it). As a third input, function
-% takes time vector which has the same length with predicted label vector.
+% takes time vector which has the same length with predicted label vector
+% that "0" indicates seizure and "1" indicates background.
 % Fourth input is a vector that corresponds to confidence level of the 
 % predictions. 
 % Then function creates and returns cell array that has filename, start 
-% time, end time, label and confidence level informations formatted. 
+% time, end time, label and confidence level informations formatted for 
+% seizure events. 
 
 
     label_create_counter = 1;
@@ -60,7 +62,7 @@ function [labeled_data] = create_label_cell(fname,pred_lab,time,conf)
         labeled_data{1,2}(label_create_counter) = 0;
         labeled_data{1,3}(label_create_counter) = time(change_inds(1));
         labeled_data{1,4}{label_create_counter} = cur_lab;
-        labeled_data{1,5}(label_create_counter) = 1;
+        labeled_data{1,5}(label_create_counter) = conf(1);
 
         % Update labeling and label counter
         [cur_lab, next_lab] = deal(next_lab,cur_lab);
@@ -72,7 +74,7 @@ function [labeled_data] = create_label_cell(fname,pred_lab,time,conf)
             labeled_data{1,2}(label_create_counter) = time(change_inds(pre));
             labeled_data{1,3}(label_create_counter) = time(change_inds(pre+1));
             labeled_data{1,4}{label_create_counter} = cur_lab;
-            labeled_data{1,5}(label_create_counter) = 1;
+            labeled_data{1,5}(label_create_counter) = conf(pre);
 
             % Update labeling and label counter
             [cur_lab, next_lab] = deal(next_lab,cur_lab);
@@ -85,8 +87,14 @@ function [labeled_data] = create_label_cell(fname,pred_lab,time,conf)
         labeled_data{1,2}(label_create_counter) = time(change_inds(end));
         labeled_data{1,3}(label_create_counter) = time(end);
         labeled_data{1,4}{label_create_counter} = cur_lab;
-        labeled_data{1,5}(label_create_counter) = 1;
+        labeled_data{1,5}(label_create_counter) = conf(end);
 
     end
+    
+    backs = strcmp(labeled_data{4},'bckg');
+    labeled_data{1}(backs)=[];
+    labeled_data{2}(backs)=[];
+    labeled_data{3}(backs)=[];
+    labeled_data{5}(backs)=[];
     
 end

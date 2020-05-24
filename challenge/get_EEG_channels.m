@@ -29,3 +29,4 @@ ch_data = chs;
 sampling = info.samples(1);     % Sampling rate of the recordings
 
 end
+

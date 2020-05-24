@@ -9,7 +9,7 @@ function [montage] = get_montage(ch_names,ch_data,type)
 %   '..\_DOCS\04_channels.txt' file. For more information please look at 
 %   that file. 
 
-if isstr(type)
+if ~ischar(type)
     error('type must be string.');
 end
 
@@ -19,21 +19,21 @@ end
 
 montage = zeros(22,size(ch_data,2));
 
-if strcmpl(type,'tcp_ar')
+if strcmpi(type,'tcp_ar')
     % Montage configuration for TCP_AR configuration
     montage_line_1 = strsplit('FP1 F7 T3 T5 O1',' ');
     montage_line_2 = strsplit('FP2 F8 T4 T6 O2',' ');
     montage_line_3 = strsplit('A1 T3 C3 CZ C4 T4 A2',' ');
     montage_line_4 = strsplit('FP1 F3 C3 P3 O1',' ');
     montage_line_5 = strsplit('FP2 F4 C4 P4 O2',' ');
-elseif strcmpl(type,'tcp_le')
+elseif strcmpi(type,'tcp_le')
     % Montage configuration for TCP_LE configuration
     montage_line_1 = strsplit('FP1 F7 T3 T5 O1',' ');
     montage_line_2 = strsplit('FP2 F8 T4 T6 O2',' ');
     montage_line_3 = strsplit('A1 T3 C3 CZ C4 T4 A2',' ');
     montage_line_4 = strsplit('FP1 F3 C3 P3 O1',' ');
     montage_line_5 = strsplit('FP2 F4 C4 P4 O2',' ');
-elseif strcmpl(type,'tcp_ar_a')
+elseif strcmpi(type,'tcp_ar_a')
     % Montage configuration for TCP_AR_A configuration
     montage_line_1 = strsplit('FP1 F7 T3 T5 O1',' ');
     montage_line_2 = strsplit('FP2 F8 T4 T6 O2',' ');
