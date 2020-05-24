@@ -9,4 +9,3 @@ temp = dir([fpath '/**/*.edf']);
 fdir = rmfield(temp,{'date','bytes','isdir','datenum'});
 
 end
-
