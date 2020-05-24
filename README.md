@@ -21,5 +21,6 @@ Fatih Altındiş
 
 ### Acknowledgements
 EEG data is provided by [TUH](https://www.isip.piconepress.com/projects/tuh_eeg/html/downloads.shtml)
+
 [edfread](https://www.mathworks.com/matlabcentral/fileexchange/31900-edfread) function of [Brett Shoelson](https://www.mathworks.com/matlabcentral/profile/authors/845693-brett-shoelson) is used to convert EDF files to MAT 
 
