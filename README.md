@@ -11,5 +11,7 @@ Just download and put **_challenge_** folder to your working directory. Make sur
 
 ### Running the Tests
 There are two example **_.m_** files in the challenge folder.
+
 Run **read_example.m** file to make sure reading functions running well. Also you can see plot of montage EEG signals with seizure events indicated with red line.
+
 Run **write_example.m** file to make sure writing functions running well. If there is no problem, after you run it, you can see **prediction.txt** file created under your working folder. It should have 1 seizure event in it.
