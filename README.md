@@ -16,10 +16,10 @@ Run **read_example.m** file to make sure reading functions running well. Also yo
 
 Run **write_example.m** file to make sure writing functions running well. If there is no problem, after you run it, you can see **prediction.txt** file created under your working folder. It should have 1 seizure event in it.
 
-### Author
+## Author
 Fatih Altındiş
 
-### Acknowledgements
+## Acknowledgements
 1- EEG data is provided by [TUH](https://www.isip.piconepress.com/projects/tuh_eeg/html/downloads.shtml)
 
 2- [edfread](https://www.mathworks.com/matlabcentral/fileexchange/31900-edfread) function of [Brett Shoelson](https://www.mathworks.com/matlabcentral/profile/authors/845693-brett-shoelson) is used to convert EDF files to MAT 
